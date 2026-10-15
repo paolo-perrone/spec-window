@@ -1,0 +1,15 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python test_spec_window.py
+      - run: python spec_window.py fixtures/h200-sweep/draft-0.6B-2K-sharegpt-c25.metrics.txt --since fixtures/h200-sweep/draft-0.6B-2K-sharegpt-c5.metrics.txt --model-dir fixtures/Qwen3-14B --gpu h200 --method draft --draft-dir fixtures/Qwen3-0.6B
