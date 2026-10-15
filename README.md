@@ -1,5 +1,9 @@
 # spec-window
 
+> Status: run 2026-10-15 on twenty recorded H200 scrapes and the EAGLE-3 paper's batch table (3/3 recorded case groups, 9/9 unit checks), on macOS with Python 3.14 and in CI on Ubuntu with Python 3.9, 3.12 and 3.13. Not yet run on a scrape from a live vLLM server.
+
+Companion to [The AI Engineer](https://theaiengineer.substack.com), the issue on continuous batching against speculative decoding.
+
 For engineers serving an open-weight model on vLLM who have turned on
 speculative decoding, or are about to, and want to know the batch size where
 it stops paying on their own server.
